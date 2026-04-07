@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Міні-словничок</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dict-wrap">
+      <div class="dict-header">
+        <h1>Міні-словничок</h1>
+        <p>Виконав Тулюпа Антон</p>
+        <p>Історизми · Архаїзми · Неологізми</p>
+      </div>
+
+      <div class="tabs" id="tabs">
+        <button class="tab-btn active" data-cat="all">
+          <span class="tab-dot" style="background: #888780"></span> Усі слова
+          <span class="count-badge" id="cnt-all"></span>
+        </button>
+        <button class="tab-btn" data-cat="hist">
+          <span class="tab-dot dot-hist"></span> Історизми
+          <span class="count-badge" id="cnt-hist"></span>
+        </button>
+        <button class="tab-btn" data-cat="arch">
+          <span class="tab-dot dot-arch"></span> Архаїзми
+          <span class="count-badge" id="cnt-arch"></span>
+        </button>
+        <button class="tab-btn" data-cat="neo">
+          <span class="tab-dot dot-neo"></span> Неологізми
+          <span class="count-badge" id="cnt-neo"></span>
+        </button>
+      </div>
+
+      <div class="word-grid" id="grid"></div>
+
+      <div class="empty" id="empty" style="display: none">
+        Нічого не знайдено
+      </div>
+
+      <div
+        class="dict-footer"
+        style="
+          margin-top: 30px;
+          text-align: center;
+          font-style: italic;
+          color: #666;
+        "
+      ></div>
+    </div>
+
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

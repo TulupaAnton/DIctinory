@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f5f4f0;
+  color: #1a1a18;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* ── Layout ── */
+.dict-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.dict-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dict-header h1 {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: #1a1a18;
+}
+
+.dict-header p {
+  font-size: 15px;
+  color: #888780;
+  margin-top: 6px;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #d3d1c7;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #5f5e5a;
+  transition: all 0.15s;
+}
+
+.tab-btn:hover {
+  background: #f1efe8;
+  color: #1a1a18;
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  color: #1a1a18;
+  border-color: #888780;
+  font-weight: 500;
+}
+
+.tab-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-hist {
+  background: #5dcaa5;
+}
+.dot-arch {
+  background: #afa9ec;
+}
+.dot-neo {
+  background: #f0997b;
+}
+
+.count-badge {
+  font-size: 12px;
+  color: #b4b2a9;
+  margin-left: 2px;
+}
+
+/* ── Search ── */
+.search-wrap {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.search-wrap input {
+  width: 100%;
+  padding: 11px 16px 11px 42px;
+  border-radius: 12px;
+  border: 1px solid #d3d1c7;
+  background: #ffffff;
+  font-size: 15px;
+  color: #1a1a18;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-wrap input:focus {
+  border-color: #888780;
+}
+
+.search-wrap input::placeholder {
+  color: #b4b2a9;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b4b2a9;
+  font-size: 18px;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ── Grid ── */
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+/* ── Card ── */
+.word-card {
+  background: #ffffff;
+  border: 1px solid #e8e6df;
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.word-card:hover {
+  border-color: #b4b2a9;
+}
+
+.accent-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 4px 0 0 4px;
+}
+
+.bar-hist {
+  background: #1d9e75;
+}
+.bar-arch {
+  background: #7f77dd;
+}
+.bar-neo {
+  background: #d85a30;
+}
+
+/* ── Tag ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+  margin-bottom: 6px;
+}
+
+.tag-hist {
+  background: #e1f5ee;
+  color: #0f6e56;
+}
+.tag-arch {
+  background: #eeedfe;
+  color: #534ab7;
+}
+.tag-neo {
+  background: #faece7;
+  color: #993c1d;
+}
+
+/* ── Word text ── */
+.word-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a18;
+  margin-bottom: 4px;
+  margin-left: 8px;
+}
+
+.word-def {
+  font-size: 13px;
+  color: #5f5e5a;
+  line-height: 1.55;
+  margin-left: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.word-card.expanded .word-def {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+/* ── Empty state ── */
+.empty {
+  text-align: center;
+  padding: 3rem;
+  color: #b4b2a9;
+  font-size: 15px;
+}
+
+/* ── Dark mode ── */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1c1c1a;
+    color: #e8e6df;
+  }
+  .dict-header h1 {
+    color: #e8e6df;
+  }
+  .dict-header p {
+    color: #888780;
+  }
+  .tab-btn {
+    background: #2c2c2a;
+    border-color: #444441;
+    color: #b4b2a9;
+  }
+  .tab-btn:hover {
+    background: #3a3a38;
+    color: #e8e6df;
+  }
+  .tab-btn.active {
+    background: #2c2c2a;
+    color: #e8e6df;
+    border-color: #888780;
+  }
+  .search-wrap input {
+    background: #2c2c2a;
+    border-color: #444441;
+    color: #e8e6df;
+  }
+  .search-wrap input:focus {
+    border-color: #888780;
+  }
+  .word-card {
+    background: #2c2c2a;
+    border-color: #3a3a38;
+  }
+  .word-card:hover {
+    border-color: #5f5e5a;
+  }
+  .word-title {
+    color: #e8e6df;
+  }
+  .word-def {
+    color: #b4b2a9;
+  }
+  .tag-hist {
+    background: #085041;
+    color: #9fe1cb;
+  }
+  .tag-arch {
+    background: #26215c;
+    color: #cecbf6;
+  }
+  .tag-neo {
+    background: #4a1b0c;
+    color: #f5c4b3;
+  }
+}
